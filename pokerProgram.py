@@ -8,6 +8,8 @@ import dealer
 import util
 from time import sleep
 
+#Test
+
 #Clear user screen, we want their full attention
 util.clear()
 
