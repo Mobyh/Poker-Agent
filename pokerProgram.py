@@ -20,7 +20,7 @@ safetyCount = 0
 while (True):
   #Shows main menu, gets answer to "Ready to play" from user
   util.printMenu()
-  answer = raw_input("--> ")
+  answer = input("--> ")
 
   #If player answers 'yes' (or variant)
   if answer in util.yes:
@@ -72,7 +72,7 @@ while(True):
   util.printDealtCards(human, agent, pot)
   
   #Prompt the user to make a move
-  answer = raw_input(">>> ")
+  answer = input(">>> ")
   
   #Players decission  //This may need to be within a while loop 
   if answer in util.fold:
@@ -114,13 +114,13 @@ while(True):
       util.clear()
       dealer.dealThreeCards(comCards, deck)
       util.printThreeCards(human, agent, pot, comCards)
-      nothing = raw_input("TEST: ")
+      nothing = input("TEST: ")
   
   
   #Game has ended, ask if payer wants to play another hand
   util.clear()
   util.printPlayAgain()
-  answer = raw_input("--> ")
+  answer = input("--> ")
   
   #If they dont want to play another hand, display stats
   if answer == 'no':
