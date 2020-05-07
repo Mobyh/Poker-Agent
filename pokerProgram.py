@@ -82,7 +82,7 @@ while(True):
   dealer.deal(human, agent, deck)
   util.printDealtCards(human, agent, pot)
   
-  if(automate):
+  if(automated):
     answer = player.play(human.money)
   else:
     #Prompt the user to make a move
