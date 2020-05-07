@@ -19,6 +19,8 @@ safetyCount = 0
 
 #Automated player flag
 automated = False
+#Raised player flag
+raised = False
 
 #Will display menu and ask player if ready to play
 #Will not move forward until the player answers 'yes'
@@ -83,7 +85,7 @@ while(True):
   util.printDealtCards(human, agent, pot)
   
   if(automated):
-    answer = player.action(human.money)
+    answer = player.action(human.money,raised)
   else:
     #Prompt the user to make a move
     answer = input(">>> ")
