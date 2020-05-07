@@ -18,4 +18,4 @@ def fold():
     return 'FOLD'
 
 def raiseBet(amount):
-    
+    return ('RAISE' + str(amount))
