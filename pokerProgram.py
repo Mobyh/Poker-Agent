@@ -3,7 +3,8 @@ Poker Playing Agent
 By: Team 18, I think.
 
 """
-import agent 
+import agent
+import player
 import dealer
 import util
 from time import sleep
@@ -16,6 +17,9 @@ util.clear()
 #Will be used to break loop in case of infinite loop
 safetyCount = 0
 
+#Automated player flag
+automated = False
+
 #Will display menu and ask player if ready to play
 #Will not move forward until the player answers 'yes'
 #Will display hint menu if answer != yes (or variant) 
@@ -23,6 +27,11 @@ while (True):
   #Shows main menu, gets answer to "Ready to play" from user
   util.printMenu()
   answer = input("--> ")
+
+  #If player answers 'demo' then the automated player is activated
+  if answer == 'demo':
+    automated = True
+
 
   #If player answers 'yes' (or variant)
   if answer in util.yes:
@@ -73,9 +82,12 @@ while(True):
   dealer.deal(human, agent, deck)
   util.printDealtCards(human, agent, pot)
   
-  #Prompt the user to make a move
-  answer = input(">>> ")
-  
+  if(automate):
+    answer = player.play(human.money)
+  else:
+    #Prompt the user to make a move
+    answer = input(">>> ")
+    
   #Players decission  //This may need to be within a while loop 
   if answer in util.fold:
     playerFolded = True
