@@ -116,7 +116,7 @@ while(True):
       util.clear()
       dealer.dealThreeCards(comCards, deck)
       util.printThreeCards(human, agent, pot, comCards)
-      nothing = input("TEST: ")
+      nothing = input(">>>: ")
   
   
   #Game has ended, ask if payer wants to play another hand

@@ -32,8 +32,8 @@ def deal(human, agent, deck):
 
 def dealThreeCards(comCards, deck):
   #placeholder, this needs to actually deal from the deck
-  comCards[0] = 'A S '
+  comCards[0] = '7 S '
   comCards[1] = 'A S '
-  comCards[2] = 'A S '
+  comCards[2] = '2 H '
   
   
