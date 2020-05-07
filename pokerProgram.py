@@ -83,7 +83,7 @@ while(True):
   util.printDealtCards(human, agent, pot)
   
   if(automated):
-    answer = player.play(human.money)
+    answer = player.action(human.money)
   else:
     #Prompt the user to make a move
     answer = input(">>> ")
