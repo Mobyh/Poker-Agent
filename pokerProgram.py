@@ -23,6 +23,9 @@ automated = False
 #Raised player flag
 raised = False
 
+#Game ended flag
+ended = False
+
 #Will display menu and ask player if ready to play
 #Will not move forward until the player answers 'yes'
 #Will display hint menu if answer != yes (or variant) 
@@ -165,19 +168,41 @@ while(True):
         #Prompt the user to make a move
         nothing = input(">>> ")
   
+  #Agent decided to bet
+  elif agentBet == True:
+    util.clear()
+    agent.money = agent.money - 5
+    pot += 5
+    util.printThreeCards(human, agent, pot, comCards)
+    raised = True
+    if(automated):
+        nothing = player.action(human.money,raised)
+        print(">>> " + str(answer))
+        sleep(3)
+    else:
+      #Prompt the user to make a move
+      nothing = input(">>> ")
   
-  #Game has ended, ask if payer wants to play another hand
-  util.clear()
-  util.printPlayAgain()
-  if(automated):
-    answer = player.action(human.money,raised)
-    print(">>> " + str(answer))
-    sleep(3)
-  else:
+  #Player decided to bet
+  elif playerBet == True:
+    util.clear()
+    player.money = player.money - 5
+    pot += 5
+    util.printThreeCards(human, agent, pot, comCards)
+    agentCheck = True
+
+
+  #NEED TO IMPLEMENT A WAY TO DECIDE WHO THE WINNER IS ASIDES FROM FOLDING
+  ended = True
+  
+  if ended:
+    #Game has ended, ask if payer wants to play another hand
+    util.clear()
+    util.printPlayAgain()
     #Prompt the user to make a move
     answer = input(">>> ")
-  
-  #If they dont want to play another hand, display stats
-  if answer == 'no':
-    break 
+    
+    #If they dont want to play another hand, display stats
+    if answer == 'no':
+      break 
 
