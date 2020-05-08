@@ -34,6 +34,7 @@ while (True):
   #If player answers 'demo' then the automated player is activated
   if answer == 'demo':
     automated = True
+    break
 
 
   #If player answers 'yes' (or variant)
@@ -93,6 +94,7 @@ while(True):
   if(automated):
     answer = player.action(human.money,raised)
     print(">>> " + str(answer))
+    sleep(3)
   else:
     #Prompt the user to make a move
     answer = input(">>> ")
@@ -152,6 +154,7 @@ while(True):
       if(automated):
         nothing = player.action(human.money,raised)
         print(">>> " + str(answer))
+        sleep(3)
       else:
         #Prompt the user to make a move
         nothing = input(">>> ")
@@ -163,6 +166,7 @@ while(True):
   if(automated):
     answer = player.action(human.money,raised)
     print(">>> " + str(answer))
+    sleep(3)
   else:
     #Prompt the user to make a move
     answer = input(">>> ")

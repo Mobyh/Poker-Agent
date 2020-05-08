@@ -9,7 +9,7 @@ def action(money, raised):
     elif action == 2:
         return fold()
     elif action == 3:
-        return raiseBet(random.randint(money))
+        return raiseBet(random.randint(1,money))
 
 def check():
     return 'CHECK'
@@ -18,4 +18,4 @@ def fold():
     return 'FOLD'
 
 def raiseBet(amount):
-    return ('RAISE' + str(amount))
+    return ('RAISE ' + str(amount))
