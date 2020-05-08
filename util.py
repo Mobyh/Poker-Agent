@@ -97,6 +97,8 @@ def printInputHint():
   print("*     - When prompted to, use simple words such as:                                 *")
   print('*        - "Check"                                                                  *')
   print('*        - "Raise"                                                                  *')
+  print('*        - "Raise"                                                                  *')
+  print('*        - "Demo"                                                                   *')
   print('*        - "Fold"                                                                   *')
   print('*        - "Yes"                                                                    *')
   print('*        - "No"                                                                     *')

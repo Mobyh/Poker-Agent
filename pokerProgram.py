@@ -32,7 +32,7 @@ while (True):
   answer = input("--> ")
 
   #If player answers 'demo' then the automated player is activated
-  if answer == 'demo':
+  if answer == 'demo' or answer == 'Demo':
     automated = True
     break
 
