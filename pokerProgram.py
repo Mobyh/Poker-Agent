@@ -119,14 +119,20 @@ while(True):
   #Agent is raising
   if agent_action == 1:
     agentBet = True
+    print("AGENT IS BETTING")
+    sleep(3)
 
   #Agent is calling
   if agent_action == 2:
     agentCheck = True
+    print("AGENT IS CHECKING")
+    sleep(3)
 
   #Agent is folding
   if agent_action == 3:
     agentFolded = True
+    print("AGENT IS FOLDING")
+    sleep(3)
 
   
   #I folded, means agent wins 
