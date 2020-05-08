@@ -3,7 +3,7 @@ Poker Playing Agent
 By: Team 18, I think.
 
 """
-import agent
+import agentScript
 import player
 import dealer
 import util
@@ -19,6 +19,7 @@ safetyCount = 0
 
 #Automated player flag
 automated = False
+
 #Raised player flag
 raised = False
 
@@ -67,7 +68,12 @@ while(True):
   util.clear()
   comCards = ["", "", "", "", ""]
   playerFolded = False
+  playerCheck = False
+  playerBet = False
+
   agentFolded = False
+  agentCheck = False
+  agentBet = False
  
   #Create fresh deck for this hand
   deck = util.createDeck()
@@ -86,6 +92,7 @@ while(True):
   
   if(automated):
     answer = player.action(human.money,raised)
+    print(">>> " + str(answer))
   else:
     #Prompt the user to make a move
     answer = input(">>> ")
@@ -105,6 +112,20 @@ while(True):
   #Agent decission
   #Need to call agent card analysis here
   ######################################
+  agent_action = agentScript.startingHand(agent)
+
+  #Agent is raising
+  if agent_action == 1:
+    agentBet = True
+
+  #Agent is calling
+  if agent_action == 2:
+    agentCheck = True
+
+  #Agent is folding
+  if agent_action == 3:
+    agentFolded = True
+
   
   #I folded, means agent wins 
   if playerFolded == True:
@@ -123,20 +144,28 @@ while(True):
     sleep(3)
  
   #If neither player folded, game continues
-  else:
-    if (playerCheck == True): #We need to add agent's check here too 
-      
+  elif playerCheck == True or agentCheck == True:      
       #Both checked, we deal community cards
       util.clear()
       dealer.dealThreeCards(comCards, deck)
       util.printThreeCards(human, agent, pot, comCards)
-      nothing = input(">>>: ")
+      if(automated):
+        nothing = player.action(human.money,raised)
+        print(">>> " + str(answer))
+      else:
+        #Prompt the user to make a move
+        nothing = input(">>> ")
   
   
   #Game has ended, ask if payer wants to play another hand
   util.clear()
   util.printPlayAgain()
-  answer = input("--> ")
+  if(automated):
+    answer = player.action(human.money,raised)
+    print(">>> " + str(answer))
+  else:
+    #Prompt the user to make a move
+    answer = input(">>> ")
   
   #If they dont want to play another hand, display stats
   if answer == 'no':
