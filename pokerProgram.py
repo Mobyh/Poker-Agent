@@ -1,3 +1,32 @@
+def newGame():
+  while (True):
+    #Shows main menu, gets answer to "Ready to play" from user
+    util.printMenu()
+    answer = input("--> ")
+
+    #If player answers 'demo' then the automated player is activated
+    if answer == 'demo' or answer == 'Demo':
+      automated = True
+      break
+
+
+    #If player answers 'yes' (or variant)
+    if answer in util.yes:
+      break
+  
+    #Otherwise we print hint menu, and then main menu again
+    util.clear()
+    util.printInputHint()
+    sleep(5)
+    util.clear() 
+  
+    #Will break loop in case of infinite loop
+    safetyCount += 1
+    if safetyCount > 50:
+      print("Error: Possible infinite loop?")
+      break
+  return automated
+
 """
 Poker Playing Agent
 By: Team 18, I think.
@@ -29,33 +58,9 @@ ended = False
 #Will display menu and ask player if ready to play
 #Will not move forward until the player answers 'yes'
 #Will display hint menu if answer != yes (or variant) 
-while (True):
-  #Shows main menu, gets answer to "Ready to play" from user
-  util.printMenu()
-  answer = input("--> ")
-
-  #If player answers 'demo' then the automated player is activated
-  if answer == 'demo' or answer == 'Demo':
-    automated = True
-    break
+automated = newGame()
 
 
-  #If player answers 'yes' (or variant)
-  if answer in util.yes:
-    break
- 
-  #Otherwise we print hint menu, and then main menu again
-  util.clear()
-  util.printInputHint()
-  sleep(5)
-  util.clear() 
- 
-  #Will break loop in case of infinite loop
-  safetyCount += 1
-  if safetyCount > 50:
-    print("Error: Possible infinite loop?")
-    break
-  
 #Ceate players, everyone starts with $100
 agent = util.Player("agent", 100)
 human = util.Player("human", 100)
@@ -205,4 +210,6 @@ while(True):
     #If they dont want to play another hand, display stats
     if answer == 'no':
       break 
+    else:
+      automated = newGame()
 
