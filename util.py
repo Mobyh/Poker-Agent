@@ -83,7 +83,7 @@ def printMenu():
   print("*                                    Good luck!!                                    *")
   print("*                                                                                   *")
   print("*                                                                                   *")
-  print("*                        Are you ready to play? (Enter 'yes')                       *")
+  print("*                        Are you ready to play? (Enter 'yes' or 'demo')             *")
   print("*                                                                                   *") 
   print("*************************************************************************************")  
 
@@ -98,7 +98,6 @@ def printInputHint():
   print('*        - "Check"                                                                  *')
   print('*        - "Raise"                                                                  *')
   print('*        - "Raise"                                                                  *')
-  print('*        - "Demo"                                                                   *')
   print('*        - "Fold"                                                                   *')
   print('*        - "Yes"                                                                    *')
   print('*        - "No"                                                                     *')
