@@ -1,5 +1,6 @@
 def newGame():
   while (True):
+    automated = False
     #Shows main menu, gets answer to "Ready to play" from user
     util.printMenu()
     answer = input("--> ")
